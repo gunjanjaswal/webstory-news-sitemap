@@ -17,6 +17,21 @@ define('WEBSTORY_NEWS_SITEMAP_VERSION', '1.1');
 define('WEBSTORY_NEWS_SITEMAP_PATH', plugin_dir_path(__FILE__));
 define('WEBSTORY_NEWS_SITEMAP_URL', plugin_dir_url(__FILE__));
 
+/**
+ * Add a direct access option that bypasses rewrite rules
+ */
+function webstory_news_direct_access() {
+	if (isset($_GET['webstory_news_direct']) && $_GET['webstory_news_direct'] === 'sitemap') {
+		// Create an instance of the plugin class
+		$sitemap = new WebStory_News_Sitemap();
+		
+		// Generate the sitemap
+		$sitemap->generate_sitemap();
+		exit;
+	}
+}
+add_action('init', 'webstory_news_direct_access', 999);
+
 // Direct file access for local development
 // This allows accessing the sitemap directly via this file
 if (basename($_SERVER['SCRIPT_FILENAME']) == basename(__FILE__)) {
