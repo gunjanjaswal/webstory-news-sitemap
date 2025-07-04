@@ -8,7 +8,6 @@
  * Author Email: hello@gunjanjaswal.me
  * License: GPL2
  */
-
 // Exit if accessed directly
 if (!defined('ABSPATH')) exit;
 
