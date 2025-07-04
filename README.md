@@ -53,6 +53,22 @@ RewriteRule ^webstory-news-sitemap\.xml$ /index.php?webstory_news_sitemap=true [
 # END Web Story News Sitemap
 ```
 
+### Google Search Console Issues
+
+If Google Search Console shows a 404 error for your sitemap even though the URL works in your browser, try these solutions:
+
+1. **Use the direct access URL parameter**:
+   ```
+   https://your-site.com/?webstory_news_direct=sitemap
+   ```
+   Submit this URL to Google Search Console instead of the clean URL.
+
+2. **Check for user-agent restrictions**: Make sure your security plugins aren't blocking the Googlebot user-agent.
+
+3. **Use the URL Inspection Tool**: In Google Search Console, use the URL Inspection tool to see exactly how Googlebot views your sitemap.
+
+4. **Check server logs**: Look for 404 entries when Googlebot tries to access the sitemap to identify any specific issues.
+
 ## Google News Guidelines
 
 This plugin follows Google News guidelines for sitemaps:
